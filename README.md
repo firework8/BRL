@@ -4,6 +4,8 @@ PyTorch implementation of "Balanced Representation Learning for Long-tailed Skel
 ## Dependencies
 
 - Python >= 3.6
-- PyTorch >= 1.2.0
-- [NVIDIA Apex](https://github.com/NVIDIA/apex) (auto mixed precision training)
+- PyTorch >= 1.5.0
 - PyYAML, tqdm, tensorboardX
+
+- We provide the dependency file of the experimental environment, you can install all dependencies by creating a new anaconda virtual environment and running `pip install -r requirements.txt `
+- Run `pip install -e .` 
