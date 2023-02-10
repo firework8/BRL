@@ -53,8 +53,14 @@ Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 dataset
   python ucla_data.py
   python kinetics_gendata.py
 ```
-Meanwhile, the PYSKL toolbox provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
-You can check [Data Doc](/data/README.md) for the download links and descriptions of the annotation format.
+Meanwhile, the [PYSKL](https://github.com/kennymckormick/pyskl#data-preparation) toolbox provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
+Check [Data Doc](/data/README.md) for the download links and descriptions of the annotation format.
 You can also use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
 
-
+#### Constructing the long-tailed datasets
+Construct NTU 60-LT, NTU 120-LT, and NW-UCLA-LT.
+```
+  cd ./data
+  python imblance_gentxt.py
+  python imblance_gendata_from_txt.py
+```
