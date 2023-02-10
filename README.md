@@ -43,3 +43,8 @@ There are 4 datasets to download:
 2. [This](https://silicondales.com/tutorials/g-suite/how-to-wget-files-from-google-drive/) might be useful if you want to `wget` the dataset from Google Drive
 
 ### Data Processing
+
+#### Generating Data
+
+Use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
+For detailed instructions, follow the [Data Doc](/data/README.md).
