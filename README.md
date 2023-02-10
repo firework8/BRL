@@ -1,5 +1,5 @@
 # BRL
-Balanced Representation Learning for Long-tailed Skeleton-based Action Recognition
+PyTorch implementation of "Balanced Representation Learning for Long-tailed Skeleton-based Action Recognition"
 
 ## Dependencies
 
