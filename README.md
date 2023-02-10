@@ -45,6 +45,16 @@ There are 4 datasets to download:
 ### Data Processing
 
 #### Generating Data
+Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 datasets.
+```
+  cd ./data
+  python ntu_gendata.py
+  python ntu120_gendata.py
+  python ucla_data.py
+  python kinetics_gendata.py
+```
+Meanwhile, the PYSKL toolbox provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
+You can check [Data Doc](/data/README.md) for the download links and descriptions of the annotation format.
+You can also use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
 
-Use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
-For detailed instructions, follow the [Data Doc](/data/README.md).
+
