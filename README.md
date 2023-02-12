@@ -29,8 +29,8 @@ There are 4 datasets to download:
    2. `nturgbd_skeletons_s018_to_s032.zip` (NTU RGB+D 120)
    3. Extract above files to `/data/nturgbd_raw`
 3. Download missing skeletons lookup files：
-   1. NTU RGB+D 60 Missing Skeletons are provided [here](https://raw.githubusercontent.com/shahroudy/NTURGB-D/master/Matlab/NTU_RGBD_samples_with_missing_skeletons.txt)
-   2. NTU RGB+D 120 Missing Skeletons are provided [here](https://raw.githubusercontent.com/shahroudy/NTURGB-D/master/Matlab/NTU_RGBD120_samples_with_missing_skeletons.txt)
+   1. NTU RGB+D 60 Missing Skeletons: `wget https://raw.githubusercontent.com/shahroudy/NTURGB-D/master/Matlab/NTU_RGBD_samples_with_missing_skeletons.txt`
+   2. NTU RGB+D 120 Missing Skeletons: `wget https://raw.githubusercontent.com/shahroudy/NTURGB-D/master/Matlab/NTU_RGBD120_samples_with_missing_skeletons.txt`
 
 #### NW-UCLA
 
