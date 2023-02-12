@@ -1,6 +1,6 @@
 # Things you need to know about PYSKL data format
 
-PYSKL now provides pre-processed pickle annotations files for training and testing. The pre-processing scripts will be released in later updates. Below we demonstrate the format of the annotation files and provide the download links.
+PYSKL provides pre-processed pickle annotations files for training and testing. Below we demonstrate the format of the annotation files and provide the download links.
 
 ## The format of the pickle files
 
@@ -32,22 +32,16 @@ You can download an annotation file and browse it to get familiar with our annot
 
 We provide links to the pre-processed skeleton annotations, you can directly download them and use them for training & testing.
 
-- NTURGB+D [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_hrnet.pkl
-- NTURGB+D [3D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_3danno.pkl
-- NTURGB+D 120 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_hrnet.pkl
-- NTURGB+D 120 [3D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_3danno.pkl
-- GYM [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/gym/gym_hrnet.pkl
-   - GYM 2D skeletons are extracted with ground-truth human bounding boxes, which can be downloaded with link: https://download.openmmlab.com/mmaction/pyskl/data/gym/gym_gt_bboxes.pkl. Please cite [PoseConv3D](https://arxiv.org/abs/2104.13586) if you use it in your project. 
-- UCF101 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/ucf101/ucf101_hrnet.pkl
-- HMDB51 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/hmdb51/hmdb51_hrnet.pkl
-- Diving48 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/diving48/diving48_hrnet.pkl
+- NTURGB+D: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_3danno.pkl
+- NTURGB+D 120: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_3danno.pkl
+- NW-UCLA:
 - Kinetics400 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/k400/k400_hrnet.pkl (Table of contents only, no skeleton annotations)
 
 For Kinetics400, since the skeleton annotations are large, we do not provide the direct download links on aliyun. Please use the following link to download the `kpfiles` and extract it under `$PYSKL/data/k400` for Kinetics-400 training & testing: https://mycuhk-my.sharepoint.com/:u:/g/personal/1155136485_link_cuhk_edu_hk/EeyDCVskqLtClMVVwqD53acBF2FEwkctp3vtRbkLfnKSTw?e=B3SZlM
 
 ## Process NTURGB+D raw skeleton files
 
-0. Assume that you are using the current directory as the working directory, which is `$PYSKL/tools/data`
+0. Assume that you are using the current directory as the working directory.
 1. Download the raw skeleton files from the [official repo of NTURGB+D](https://github.com/shahroudy/NTURGB-D/), unzip and place all `.skeleton` files in a single folder  (named `nturgb+d_skeletons` in my example).
 2. Run `python ntu_preproc.py` to generate processed skeleton annotations, it will generate `ntu60_3danno.pkl` and `ntu120_3danno.pkl` (If you also downloaded the NTURGB+D 120 skeletons) under your current working directory.
 
@@ -75,6 +69,14 @@ PS: For the best pre-processing speed, change `num_process` in `ntu_preproc.py` 
   year={2019},
   publisher={IEEE}
 }
+% NW-UCLA
+@inproceedings{wang2014cross,
+title={Cross-view action modeling, learning and recognition},
+author={Wang, Jiang and Nie, Xiaohan and Xia, Yin and Wu, Ying and Zhu, Song-Chun},
+booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},
+pages={2649--2656},
+year={2014}
+}
 % Kinetics-400
 @inproceedings{carreira2017quo,
   title={Quo vadis, action recognition? a new model and the kinetics dataset},
@@ -83,36 +85,12 @@ PS: For the best pre-processing speed, change `num_process` in `ntu_preproc.py` 
   pages={6299--6308},
   year={2017}
 }
-% GYM
-@inproceedings{shao2020finegym,
-  title={Finegym: A hierarchical video dataset for fine-grained action understanding},
-  author={Shao, Dian and Zhao, Yue and Dai, Bo and Lin, Dahua},
-  booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
-  pages={2616--2625},
-  year={2020}
-}
-% UCF101
-@article{soomro2012ucf101,
-  title={UCF101: A dataset of 101 human actions classes from videos in the wild},
-  author={Soomro, Khurram and Zamir, Amir Roshan and Shah, Mubarak},
-  journal={arXiv preprint arXiv:1212.0402},
-  year={2012}
-}
-% HMDB51
-@inproceedings{kuehne2011hmdb,
-  title={HMDB: a large video database for human motion recognition},
-  author={Kuehne, Hildegard and Jhuang, Hueihan and Garrote, Est{\'\i}baliz and Poggio, Tomaso and Serre, Thomas},
-  booktitle={2011 International conference on computer vision},
-  pages={2556--2563},
-  year={2011},
-  organization={IEEE}
-}
-% Diving48
-@inproceedings{li2018resound,
-  title={Resound: Towards action recognition without representation bias},
-  author={Li, Yingwei and Li, Yi and Vasconcelos, Nuno},
-  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
-  pages={513--528},
-  year={2018}
+% PYSKL
+@inproceedings{duan2022pyskl,
+  title={Pyskl: Towards good practices for skeleton action recognition},
+  author={Duan, Haodong and Wang, Jiaqi and Chen, Kai and Lin, Dahua},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  pages={7351--7354},
+  year={2022}
 }
 ```
