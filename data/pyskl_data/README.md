@@ -34,8 +34,8 @@ We provide links to the pre-processed skeleton annotations, you can directly dow
 
 - NTURGB+D: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_3danno.pkl
 - NTURGB+D 120: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_3danno.pkl
-- NW-UCLA:
-- Kinetics400 [2D Skeleton]: https://download.openmmlab.com/mmaction/pyskl/data/k400/k400_hrnet.pkl (Table of contents only, no skeleton annotations)
+- NW-UCLA: https://drive.google.com/file/d/1GEK5ORAHtVBiIKpBCDfDhU4L7tPDHrMe/view?usp=share_link
+- Kinetics400: https://download.openmmlab.com/mmaction/pyskl/data/k400/k400_hrnet.pkl (Table of contents only, no skeleton annotations)
 
 For Kinetics400, since the skeleton annotations are large, we do not provide the direct download links on aliyun. Please use the following link to download the `kpfiles` and extract it under `$PYSKL/data/k400` for Kinetics-400 training & testing: https://mycuhk-my.sharepoint.com/:u:/g/personal/1155136485_link_cuhk_edu_hk/EeyDCVskqLtClMVVwqD53acBF2FEwkctp3vtRbkLfnKSTw?e=B3SZlM
 
