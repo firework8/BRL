@@ -45,7 +45,7 @@ There are 4 datasets to download:
 ### Data Processing
 
 #### Generating Data
-Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 datasets.
+Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 datasets:
 ```
   cd ./data
   python ntu_gendata.py
@@ -57,10 +57,21 @@ Meanwhile, the [PYSKL](https://github.com/kennymckormick/pyskl#data-preparation)
 Check [Data Doc](/data/README.md) for the download links and descriptions of the annotation format.
 You can also use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
 
-#### Constructing the long-tailed datasets
-Construct NTU 60-LT, NTU 120-LT, and NW-UCLA-LT.
+#### Constructing Long-tailed Datasets
+Construct NTU 60-LT, NTU 120-LT, and NW-UCLA-LT：
 ```
   cd ./data
   python imblance_gentxt.py
   python imblance_gendata_from_txt.py
 ```
+
+## Training & Testing
+
+You can use following commands for training and testing. Basically, we support distributed training on a single server with multiple GPUs.
+```shell
+# Training
+bash tools/dist_train.sh {config_name} {num_gpus} {other_options}
+# Testing
+bash tools/dist_test.sh {config_name} {checkpoint} {num_gpus} --out {output_file} --eval top_k_accuracy
+```
+For specific examples, please go to the README for each specific algorithm.
