@@ -53,9 +53,9 @@ Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 dataset
   python ucla_data.py
   python kinetics_gendata.py
 ```
-Meanwhile, the [PYSKL](https://github.com/kennymckormick/pyskl#data-preparation) toolbox provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
-Check [Data Doc](/data/README.md) for the download links and descriptions of the annotation format.
-You can also use the [provided script](/data/utils/ntu_preproc.py) to generate the processed pickle files. 
+Meanwhile, [PYSKL](https://github.com/kennymckormick/pyskl#data-preparation) provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
+Please check [Data Doc](/data/pyskl_data/README.md) for the download links and descriptions of the annotation format.
+You can also use the [provided script](/data/pyskl_data/ntu_preproc.py) to generate the processed pickle files. 
 
 #### Constructing Long-tailed Datasets
 Construct NTU 60-LT, NTU 120-LT, and NW-UCLA-LT：
@@ -74,4 +74,13 @@ bash tools/dist_train.sh {config_name} {num_gpus} {other_options}
 # Testing
 bash tools/dist_test.sh {config_name} {checkpoint} {num_gpus} --out {output_file} --eval top_k_accuracy
 ```
-For specific examples, please go to the README for each specific algorithm.
+For specific examples and pre-trained models, please go to the README.
+
+## Acknowledgements
+
+This repo is based on [MS-G3D](https://github.com/kenziyuliu/ms-g3d), [CTR-GCN](https://github.com/Uason-Chen/CTR-GCN), and [PYSKL](https://github.com/kennymckormick/pyskl).
+
+Thanks to the original authors for their work!
+
+## Contact
+For any questions, feel free to contact: `hongda.liu@cripac.ia.ac.cn`
