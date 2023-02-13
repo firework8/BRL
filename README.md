@@ -71,10 +71,27 @@ You can use following commands for training and testing. Basically, we support d
 ```shell
 # Training
 bash tools/dist_train.sh {config_name} {num_gpus} {other_options}
-# Testing
-bash tools/dist_test.sh {config_name} {checkpoint} {num_gpus} --out {output_file} --eval top_k_accuracy
+# For example: train BRL on NTURGB+D XSub (Joint Modality) with one GPU, with validation, and test the last and the best (with best validation metric) checkpoint.
+bash tools/dist_train.sh configs/BRL/ntu60_xsub_LT/j.py 1 --validate --test-last --test-best
 ```
-For specific examples and pre-trained models, please go to the README.
+```shell
+# Testing
+bash tools/dist_test.sh {config_name} {checkpoint} {num_gpus} --out {output_file} --eval {optional_arguments}
+# For example: test BRL on NTURGB+D XSub (Joint Modality) with metrics `top_k_accuracy`, and dump the result to `result.pkl`.
+bash tools/dist_test.sh configs/BRL/ntu60_xsub_LT/j.py checkpoints/SOME_CHECKPOINT.pth 1 --eval top_k_accuracy --out result.pkl
+```
+```shell
+# Ensemble the results
+cd ./tools
+python ensemble.py
+```
+
+**Note**
+
+1. We use the linear-scaling learning rate (**Initial LR ∝ Batch Size**). If you change the training batch size, remember to change the initial LR proportionally.
+2. For Two-Stream results, we adopt the **1 (Joint):1 (Bone)** fusion. For Four-Stream results, we adopt the **2 (Joint):2 (Bone):1 (Joint Motion):1 (Bone Motion)** fusion. For Six-Stream results, we adopt the **2 (Joint):2 (Bone):2 (Skip):1 (Joint Motion):1 (Bone Motion):1 (Skip Motion)** fusion.
+
+For specific examples and pre-trained models, please go to the [README](/configs/README.md).
 
 ## Acknowledgements
 
