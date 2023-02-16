@@ -86,11 +86,6 @@ cd ./tools
 python ensemble.py
 ```
 
-**Note**
-
-1. We use the linear-scaling learning rate (**Initial LR ∝ Batch Size**). If you change the training batch size, remember to change the initial LR proportionally.
-2. For Two-Stream results, we adopt the **1 (Joint):1 (Bone)** fusion. For Four-Stream results, we adopt the **2 (Joint):2 (Bone):1 (Joint Motion):1 (Bone Motion)** fusion. For Six-Stream results, we adopt the **2 (Joint):2 (Bone):2 (Skip):1 (Joint Motion):1 (Bone Motion):1 (Skip Motion)** fusion.
-
 For specific examples and pre-trained models, please go to the [README](/configs/README.md).
 
 ## Acknowledgements
