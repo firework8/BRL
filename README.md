@@ -22,7 +22,7 @@ There are 4 datasets to download:
 
 Please download the raw data from [NTU RGB+D 60](https://rose1.ntu.edu.sg/dataset/actionRecognition), [NTU RGB+D 120](https://rose1.ntu.edu.sg/dataset/actionRecognition), [NW-UCLA](https://www.dropbox.com/s/10pcm4pksjy6mkq/all_sqe.zip?dl=0), and [Kinetics Skeleton 400](https://drive.google.com/drive/folders/1SPQ6FmFsjGg3f59uCWfdUWI-5HJM_YhZ).
 
-For detailed download instructions, please go to the [README](/data/README.md).
+For detailed download instructions, please go to the [README](/data/utils/README.md).
 
 ### Data Processing
 
