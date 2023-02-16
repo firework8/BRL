@@ -29,11 +29,11 @@ For detailed download instructions, please go to the [README](/data/README.md).
 #### Generating Data
 Generate NTU RGB+D 60, NTU RGB+D 120, NW-UCLA, and Kinetics Skeleton 400 datasets:
 ```
-  cd ./data
-  python ntu_gendata.py
-  python ntu120_gendata.py
-  python ucla_data.py
-  python kinetics_gendata.py
+cd ./data
+python ntu_gendata.py
+python ntu120_gendata.py
+python ucla_data.py
+python kinetics_gendata.py
 ```
 Meanwhile, [PYSKL](https://github.com/kennymckormick/pyskl#data-preparation) provides the processed skeleton data for all datasets as pickle files (which can be directly used for training and testing).
 Please check [Data Doc](/data/pyskl_data/README.md) for the download links and descriptions of the annotation format.
@@ -42,9 +42,9 @@ You can also use the [provided script](/data/pyskl_data/ntu_preproc.py) to gener
 #### Constructing Long-tailed Datasets
 Construct NTU 60-LT, NTU 120-LT, and NW-UCLA-LT：
 ```
-  cd ./data
-  python imblance_gentxt.py
-  python imblance_gendata_from_txt.py
+cd ./data
+python imblance_gentxt.py
+python imblance_gendata_from_txt.py
 ```
 
 ## Training & Testing
