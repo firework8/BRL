@@ -1,5 +1,5 @@
 # BRL
-PyTorch implementation of "Balanced Representation Learning for Long-tailed Skeleton-based Action Recognition"
+PyTorch implementation of "Balanced Representation Learning for Long-tailed Skeleton-based Action Recognition" [[PDF](https://arxiv.org/pdf/2308.14024.pdf)]
 
 ## Dependencies
 
@@ -98,6 +98,17 @@ For specific examples and other pre-trained models, please go to the [README](/c
 This repo is based on [MS-G3D](https://github.com/kenziyuliu/ms-g3d), [CTR-GCN](https://github.com/Uason-Chen/CTR-GCN), and [PYSKL](https://github.com/kennymckormick/pyskl).
 
 Thanks to the original authors for their work!
+
+## Citation
+
+Please cite this work if you find it useful:
+
+      @article{liu2023balanced,
+        title={Balanced Representation Learning for Long-tailed Skeleton-based Action Recognition},
+        author={Liu, Hongda and Wang, Yunlong and Ren, Min and Hu, Junxing and Luo, Zhengquan and Hou, Guangqi and Sun, Zhenan},
+        journal={arXiv preprint arXiv:2308.14024},
+        year={2023}
+      }
 
 ## Contact
 For any questions, feel free to contact: `hongda.liu@cripac.ia.ac.cn`
