@@ -286,56 +286,6 @@ class TwostageAALoss(nn.Module):
 
 
 @LOSSES.register_module()
-class KAALoss(nn.Module):
-    def __init__(self, weight=None):
-        super(KAALoss, self).__init__()
-
-        scheduler = "drw"
-
-        self.change = 0
-        self.epoch = -1
-        self.step_epoch = 20
-
-        if scheduler == "drw":
-            self.betas = [0, 1]
-        elif scheduler == "default":
-            self.betas = [1, 1]
-        self.weight = weight
-
-    def update_weight(self, beta):
-        effective_num = 1.0 - np.power(beta, self.num_class_list)
-        for idx in range(len(beta)):
-            beta[idx] = 1.0 - beta[idx]
-        per_cls_weights = beta / np.array(effective_num)
-        per_cls_weights = per_cls_weights / np.sum(per_cls_weights) * len(self.num_class_list)
-        self.weight = torch.FloatTensor(per_cls_weights).to(self.input.device)
-
-    def reset_epoch(self, epoch):
-        idx = (epoch+1) // self.step_epoch 
-        beta = self.betas[idx]
-        if beta > 0:
-            self.update_weight(self.weight_class_list)
-        else:
-            beta = [0]
-            self.update_weight(beta)
-
-    def forward(self, input, target, epoch, split):
-
-        the_epoch = epoch['epoch']
-        self.input = input
-
-        if self.change == 0:
-            self.num_class_list = get_k400_num_class_list(split)
-            self.weight_class_list = get_weight_list(self.num_class_list)
-            self.change = 1
-
-        if self.epoch != the_epoch:
-            self.reset_epoch(the_epoch)
-            self.epoch = the_epoch
-        return F.cross_entropy(input, target, weight= self.weight)
-
-
-@LOSSES.register_module()
 class TwostageLDAMLoss(nn.Module):
 
     def __init__(self, weight=None):
@@ -594,3 +544,53 @@ class GumbelCE(nn.Module):
             loss=torch.clamp(loss,min=0,max=20)
             return loss
 
+
+@LOSSES.register_module()
+class KAALoss(nn.Module):
+    def __init__(self, weight=None):
+        super(KAALoss, self).__init__()
+
+        scheduler = "drw"
+
+        self.change = 0
+        self.epoch = -1
+        self.step_epoch = 130
+
+        if scheduler == "drw":
+            self.betas = [0, 1]
+        elif scheduler == "default":
+            self.betas = [1, 1]
+        self.weight = weight
+
+    def update_weight(self, beta):
+        effective_num = 1.0 - np.power(beta, self.num_class_list)
+        for idx in range(len(beta)):
+            beta[idx] = 1.0 - beta[idx]
+        per_cls_weights = beta / np.array(effective_num)
+        per_cls_weights = per_cls_weights / np.sum(per_cls_weights) * len(self.num_class_list)
+        self.weight = torch.FloatTensor(per_cls_weights).to(self.input.device)
+
+    def reset_epoch(self, epoch):
+        idx = (epoch+1) // self.step_epoch 
+        beta = self.betas[idx]
+        if beta > 0:
+            self.update_weight(self.weight_class_list)
+        else:
+            beta = [0]
+            self.update_weight(beta)
+
+    def forward(self, input, target, epoch):
+
+        the_epoch = epoch['epoch']
+        self.input = input
+
+        if self.change == 0:
+            self.num_class_list = get_k400_num_class_list()
+            self.weight_class_list = get_weight_list(self.num_class_list)
+            self.change = 1
+
+        if self.epoch != the_epoch:
+            self.reset_epoch(the_epoch)
+            self.epoch = the_epoch
+        return F.cross_entropy(input, target, weight= self.weight)
+        
