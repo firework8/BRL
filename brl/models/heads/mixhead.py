@@ -251,12 +251,12 @@ class MixEQLHead(MixHead):
                          **kwargs)
 
 @HEADS.register_module()
-class MixAAHead(MixHead):
+class MixKAAHead(MixHead):
 
     def __init__(self,
                  num_classes,
                  in_channels,
-                 loss_cls=dict(type='TwostageAALoss'),
+                 loss_cls=dict(type='KAALoss'),
                  dropout=0.,
                  init_std=0.01,
                  **kwargs):
