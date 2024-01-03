@@ -1,3 +1,15 @@
+"""
+##############################
+Notes:
+The supplementary K400 dataset setup is based on the implementation on the latest version of pyskl.
+code: https://github.com/kennymckormick/pyskl
+The current repo uses the older version of pyskl code.
+Sorry, I didn't notice this when updating the setup.
+I will then update the K400 code to the new version in the next repo.
+This setup actually works fine.
+You can wait for my new release, or copy the key improved settings to the latest version of pyskl to run.
+##############################
+"""
 modality = 'bm'
 graph = 'coco'
 work_dir = f'./work_dirs/strong_aug_k400_hrnet/{modality}'
