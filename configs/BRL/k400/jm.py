@@ -1,14 +1,11 @@
 """
-##############################
+******************************
 Notes:
-The supplementary K400 dataset setup is based on the implementation on the latest version of pyskl.
-code: https://github.com/kennymckormick/pyskl
-The current repo uses the older version of pyskl code.
-Sorry, I didn't notice this when updating the setup.
-I will then update the K400 code to the new version in the next repo.
-This setup actually works fine.
-You can wait for my new release, or copy the key improved settings to the latest version of pyskl to run.
-##############################
+The current BRL repo uses the older version of the PYSKL code.
+However, the K400 config needs to be run under the latest version of PYSKL.
+You could refer to my new repo ProtoGCN to adapt it for a better performance.
+code: https://github.com/firework8/ProtoGCN
+******************************
 """
 modality = 'jm'
 graph = 'coco'
