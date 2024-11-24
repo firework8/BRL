@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This directory includes configs for different recognition algorithms. We provide the results trained on NTURGB+D 60 and NTURGB+D 120 in the **long-tailed** training setting. We also provide checkpoints for six modalities: Joint, Bone, Skip, Joint Motion, Bone Motion, and Skip Motion. The accuracy of each modality links to the weight file.
+This directory includes configs for different recognition algorithms. We provide the results trained on NTU RGB+D 60, NTU RGB+D 120 and Kinetics-400 in the long-tailed training setting. We also provide checkpoints for six modalities: Joint, Bone, Skip, Joint Motion, Bone Motion, and Skip Motion. The accuracy of each modality links to the weight file.
 
 ## BRL Model Zoo
 
-We release numerous checkpoints for BRL trained with various modalities, annotations on NTURGB+D and NTURGB+D 120. The accuracy of each modality links to the weight file.
+We release numerous checkpoints for BRL trained with various modalities, annotations on NTU RGB+D 60, NTU RGB+D 120 and Kinetics-400. The accuracy of each modality links to the weight file.
 
 | Dataset | Annotation | Joint Top1 | Bone Top1 | Skip Top1 | Joint Motion Top1 | Bone Motion Top1 | Skip Motion Top1 | Two-Stream Top1 | Four Stream Top1 | Six Stream Top1|
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
