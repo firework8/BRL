@@ -1,12 +1,5 @@
 
-# Download datasets
-
-There are 4 datasets to download:
-
-- NTU RGB+D 60 Skeleton
-- NTU RGB+D 120 Skeleton
-- NW-UCLA
-- Kinetics 400 Skeleton
+# Download Raw Data
 
 ### NTU RGB+D 60 and 120
 
