@@ -1,6 +1,19 @@
 # Things you need to know about PYSKL data format
 
-PYSKL provides pre-processed pickle annotations files for training and testing. Below we demonstrate the format of the annotation files and provide the download links.
+[PYSKL](https://github.com/kennymckormick/pyskl) provides pre-processed pickle annotations files for training and testing. Below we provide the download links and demonstrate the format of the annotation files.
+
+## Download the pre-processed skeletons
+
+We provide links to the pre-processed skeleton annotations.
+
+- NTURGB+D: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_3danno.pkl
+- NTURGB+D 120: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_3danno.pkl
+- NW-UCLA: https://drive.google.com/file/d/1GEK5ORAHtVBiIKpBCDfDhU4L7tPDHrMe/view?usp=share_link
+- Kinetics-Skeleton: https://download.openmmlab.com/mmaction/pyskl/data/k400/k400_hrnet.pkl (Table of contents only, no skeleton annotations)
+
+For Kinetics-Skeleton, please use the following link to download the `kpfiles` and extract it under `$BRL/data/k400` for Kinetics-Skeleton training & testing: https://mycuhk-my.sharepoint.com/:u:/g/personal/1155136485_link_cuhk_edu_hk/EeyDCVskqLtClMVVwqD53acBF2FEwkctp3vtRbkLfnKSTw?e=B3SZlM
+
+Note that the `kpfiles` needs to be extracted under `Linux`. The Kinetics-Skeleton requires `Memcached` to run, which can be referred to [here](https://www.runoob.com/memcached/memcached-install.html).
 
 ## The format of the pickle files
 
@@ -17,7 +30,7 @@ Each pickle file corresponds to an action recognition dataset. The content of a 
    7. `keypoint_score` (np.ndarray, with shape [M x T x V]): The confidence score of keypoints. Only required for 2D skeletons.
 
 Note:
-1. For Kinetics400, things are a little different (for storage saving and training acceleration):
+1. For Kinetics-Skeleton, things are a little different (for storage saving and training acceleration):
    1. The fields `keypoint`, `keypoint_score` are not in the annotation file, but stored in many different **kpfiles**.
    2. A new field named `raw_file`, which specifies the file path of the **kpfile** that contains the skeleton annotation of this video.
    3. Each **kpfile** is a dictionary: key is the `frame_dir`, value is a dictionary with a single key `keypoint`. The value of `keypoint` is an ndarray with shape [N x V x C]. N: number of skeletons in the video; V: number of keypoints; C (C=3): number of dimensions for keypoint (x, y, score).
@@ -28,22 +41,13 @@ Note:
 
 You can download an annotation file and browse it to get familiar with our annotation formats.
 
-## Download the pre-processed skeletons
-
-We provide links to the pre-processed skeleton annotations, you can directly download them and use them for training & testing.
-
-- NTURGB+D: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu60_3danno.pkl
-- NTURGB+D 120: https://download.openmmlab.com/mmaction/pyskl/data/nturgbd/ntu120_3danno.pkl
-- NW-UCLA: https://drive.google.com/file/d/1GEK5ORAHtVBiIKpBCDfDhU4L7tPDHrMe/view?usp=share_link
-- Kinetics400: https://download.openmmlab.com/mmaction/pyskl/data/k400/k400_hrnet.pkl (Table of contents only, no skeleton annotations)
-
-For Kinetics400, since the skeleton annotations are large, we do not provide the direct download links on aliyun. Please use the following link to download the `kpfiles` and extract it under `$PYSKL/data/k400` for Kinetics-400 training & testing: https://mycuhk-my.sharepoint.com/:u:/g/personal/1155136485_link_cuhk_edu_hk/EeyDCVskqLtClMVVwqD53acBF2FEwkctp3vtRbkLfnKSTw?e=B3SZlM
-
 ## Process NTURGB+D raw skeleton files
 
-0. Assume that you are using the current directory as the working directory.
-1. Download the raw skeleton files from the [official repo of NTURGB+D](https://github.com/shahroudy/NTURGB-D/), unzip and place all `.skeleton` files in a single folder  (named `nturgb+d_skeletons` in my example).
-2. Run `python ntu_preproc.py` to generate processed skeleton annotations, it will generate `ntu60_3danno.pkl` and `ntu120_3danno.pkl` (If you also downloaded the NTURGB+D 120 skeletons) under your current working directory.
+If you would like to construct the above data yourself, you could refer to the steps below:
+
+1. Assume that you are using the current directory as the working directory.
+2. Download the raw skeleton files from the [official repo of NTURGB+D](https://github.com/shahroudy/NTURGB-D/), unzip and place all `.skeleton` files in a single folder  (named `nturgb+d_skeletons` in my example).
+3. Run `python ntu_preproc.py` to generate processed skeleton annotations, it will generate `ntu60_3danno.pkl` and `ntu120_3danno.pkl` (If you also downloaded the NTURGB+D 120 skeletons) under your current working directory.
 
 PS: For the best pre-processing speed, change `num_process` in `ntu_preproc.py` to the number of cores that your CPU has.
 
