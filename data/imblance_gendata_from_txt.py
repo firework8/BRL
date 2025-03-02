@@ -182,7 +182,7 @@ if __name__ == '__main__':
     arg = parser.parse_args()
 
     data_path = "/data/lhd/nturgbd_raw/nturgb+d_skeletons"
-    txt_path = "/home/lhd/action_recognition/st-gcn/NTU60_xsub_exp_100.txt"
+    txt_path = "./NTU60_LT/NTU60_xsub_exp_100.txt"
 
     for b in benchmark:
         for p in part:
