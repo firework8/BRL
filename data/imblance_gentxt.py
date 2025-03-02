@@ -33,10 +33,16 @@ def save_im_data(sample_name,
                 rand_number=0):
 
     if part == 'train':
-
+        
+        """
+        # NTU 60
+          X-sub 600 / X-view 600
+        # NTU 120
+          X-sub 600 / X-set 400
+        """
         skeleton_max = 600
         # skeleton_max = 400
-        # skeleton_max = len(sample_name) / cls_num
+        
         skeleton_num_per_cls = []
         if skeleton_type == 'exp':
             for cls_idx in range(cls_num):
@@ -49,6 +55,7 @@ def save_im_data(sample_name,
                 skeleton_num_per_cls.append(int(skeleton_max * imb_factor))
         else:
             skeleton_num_per_cls.extend([int(skeleton_max)] * cls_num)
+        
         new_name = []
         new_label = []
         np.random.seed(rand_number)
@@ -81,19 +88,16 @@ def save_im_data(sample_name,
 
         # show_im_num_per_cls(skeleton_num_per_cls, cls_num)
         # print(len(sample_name))
-        
-        print(len(new_name))
+        # print(len(new_name))
 
         writename = []
-        for thei in new_name:
-            writename.append(thei)
-
-        print(len(writename))
+        for i in new_name:
+            writename.append(i)
         
         f = open('./data/NTU120_xset_exp_10.txt','w', encoding='utf-8')
-        for thename in writename:
-            f.writelines(thename)
-            if thename != writename[-1]:
+        for name in writename:
+            f.writelines(name)
+            if name != writename[-1]:
                 f.writelines('\n')
         f.close()
         
@@ -133,7 +137,7 @@ if __name__ == '__main__':
     # benchmark = ['xsub']
     part = ['train']
 
-    data_path = "/data/lhd/CTR-GCN-data/ntu120/NTU120_xset_train.txt"
+    data_path = "./standard_data/ntu120/NTU120_xset_train.txt"
 
     for b in benchmark:
         for p in part:
